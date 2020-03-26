@@ -176,7 +176,7 @@ def tri_et_inverse(l):
     k.append(sorted(l, reverse=True))
     return k
 
-class fake_input:
+'''class fake_input:
      def __init__(self, saisies):
          self._iter = iter(saisies)
      def __call__(self, *args, **kwargs):
@@ -186,11 +186,12 @@ def aller_a_paris(input_call=input):
     k = 0
     while True:
         k +=1
-        if input_call.lower() == "paris":
-            return False
+        for i in range(len(input_call)):
+            if input_call[i].lower() == "paris":
+                return False
     return k, "Paris"
     
-aller_a_paris(input_call=fake_input(['Barcelone', "paris"]))
+aller_a_paris(input_call=fake_input(['Barcelone', "paris"]))'''
   
 
 ville_nom_pays = {'Paris':'France', 'Berlin': 'Allemagne', 'Madrid':'Espagne', 'Moscou':'Russie'}
