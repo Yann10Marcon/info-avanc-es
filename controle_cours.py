@@ -163,6 +163,16 @@ def extremites(l):
     return k
 
 #Question 6
+class Mot():
+    def __init__(self,mot):
+            self.mot = mot
+           
+    def comptelettre(self,lettre):
+        i = 0
+        for j in self.mot.upper():
+            if j.upper() == lettre.upper():
+                i+=1
+        return i
 
 #Question 7
 def tri_et_inverse(l):
@@ -181,8 +191,13 @@ def aller_a_paris(input_call=input):
     # Au lieu d'utiliser input comme en cours vous appelez input_call
     # par dÃ©faut elle vaut input donc vous pouvez appeller
     # aller_a_paris() pour tester a la main
-    while True:
-        return 0, 'Nulle Part'
+    ville = input_call("Saisissez une déstination :")
+    i=1
+    while ville.lower() !="paris":
+        i+=1
+        ville = input_call("Saisissez une déstination :")
+       
+    return i,"paris"
 
 #Question 9
 ville_nom_pays = {"Paris":"France",
