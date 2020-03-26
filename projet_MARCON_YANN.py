@@ -14,12 +14,12 @@ def decision(ide, identifiant = identifiant) :
 
 class verif_personne:
     def __init__(self, prenom, nom, sexe):
-        reponse = True
+        reponse = False
         self.prenom = prenom
         self.nom = nom
         self.sexe = sexe
         if len(prenom)<3 or len(nom)<3 or (sexe != "F" and sexe != "H"):
-            reponse = False
+            reponse = True
         print(reponse)
     
     '''def accepte(self, prenom, nom):
@@ -113,6 +113,8 @@ def radar(matiere, gp1, gp2):
     plt.legend(loc='upper right', bbox_to_anchor=(0.1, 0.1))
     plt.figure(1, figsize=(30, 16))
     plt.show()
+
+
 def bulletin():    
     choix = True
     while choix:
@@ -138,13 +140,13 @@ def bulletin():
             pre = input('Entrer son prenom : ')
             name = input('Entrer son nom :')
             sex = input('Quel est son sexe ? (F ou H): ')
-            verif = False
+            verif = True
             while verif:
                 verif = verif_personne(pre, name, sex)
                 print("Une coordonnée n'est pas valide ! Entrer les coordonnées de l'élève : ")
-                prenom = input('Entrer son prenom : ')
-                nom = input('Entrer son nom :')
-                sexe = input('Quel est son sexe ? : ')   
+                pre = input('Entrer son prenom : ')
+                name = input('Entrer son nom :')
+                sex = input('Quel est son sexe ? : ')   
                 '''verif.accepte()'''
             niveau = input("Quel est son niveau d'étude ? : ")
             filiere = input("Quelle est sa filière : ")
@@ -172,3 +174,6 @@ def bulletin():
             choix = False
         else :
             print("Ce choix n'est pas disponible")
+
+#Pour lancer
+bulletin()
