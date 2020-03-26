@@ -140,14 +140,14 @@ def bulletin():
             pre = input('Entrer son prenom : ')
             name = input('Entrer son nom :')
             sex = input('Quel est son sexe ? (F ou H): ')
-            verif = True
-            while verif:
+            verif = verif_personne(pre, name, sex)
+            while verif == True:
                 verif = verif_personne(pre, name, sex)
                 print("Une coordonnée n'est pas valide ! Entrer les coordonnées de l'élève : ")
                 pre = input('Entrer son prenom : ')
                 name = input('Entrer son nom :')
                 sex = input('Quel est son sexe ? : ')   
-                '''verif.accepte()'''
+                
             niveau = input("Quel est son niveau d'étude ? : ")
             filiere = input("Quelle est sa filière : ")
             num_classe = str(int(input("Quel est le numéro de classe : ")))
