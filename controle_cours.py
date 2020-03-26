@@ -2,7 +2,7 @@
 Contrôle de connaissances
 Tout est à faire en pur python respectez bien le nommage des variables
 
-    Question 1 : Fonction FAIT
+    Question 1 : Fonction
     Créer une fonction appelée sup21 qui renvoie si un nombre est supérieur ou égal à 21
 
     >>> sup21(21)
@@ -10,13 +10,13 @@ Tout est à faire en pur python respectez bien le nommage des variables
     >>> sup21(2)
     False
 
-    Question 2 : listes FAIT
+    Question 2 : listes
     Créer une fonction `pairs` qui renvoie les éléments pairs d'une liste
 
     >>> pairs([1,2,3])
     [2]
 
-    Question 3 : Création de fonction FAIT
+    Question 3 : Création de fonction
     Créer une fonction 'ajout4' qui prend en paramètre une liste et
     renvoie une nouvelle liste avec l'entier 4 ajouté à la fin.
     Vous ne devez pas modifier la liste de départ
@@ -30,7 +30,7 @@ Tout est à faire en pur python respectez bien le nommage des variables
     >>> l
     [1, 2, 3]
 
-    Question 4 FAIT
+    Question 4
     Créer une fonction 'to_strings' qui pour un dictionnaire renvoie une liste de chaines de caractères
     au format suivant : 'clé:valeur'
     Exemple : pour {1:2} il faut renvoyer ['1:2']
@@ -42,7 +42,7 @@ Tout est à faire en pur python respectez bien le nommage des variables
     >>> to_strings({1:2,3:4})
     ['1:2', '3:4']
 
-    Question5 FAIT
+    Question5
     Créer une fonction 'extremites' qui renvoie les deux premiers et
     les deux derniers d'une liste : pour [1,2,3,4,5], renvoyer [1,2,4,5]
 
@@ -62,7 +62,7 @@ Tout est à faire en pur python respectez bien le nommage des variables
     >>> mot.comptelettre('B') == mot.comptelettre('b') == 1
     True
 
-    Question 7 FAIT
+    Question 7
     Créer une fonction 'tri_et_inverse' qui prend en paramètre une liste
     et renvoie (sans modifier la liste de départ) la liste triée et la liste départ mais dans le sens inverse
 
@@ -126,31 +126,34 @@ Tout est à faire en pur python respectez bien le nommage des variables
     False
     
 """
-def sup21(n):
-    if n < 21:
-        return False
-    else:
+#Question 1
+def sup21(nombre):
+    if nombre >= 21:
         return True
+    else:
+        return False
 
-def pairs(l):
-    k = []
-    for i in l:
-        if i%2 == 0:
-            k.append(i)
-    return k
+#Question 2
+def pairs(liste):
+    pairs=[]
+    for i in liste:
+        if i%2==0:
+            pairs.append(i)
+    return pairs
 
-def ajout4(l):
-    k = l
-    k.append(4)
-    return k
+#Question 3
+def ajout4(liste):
+    l = liste + [4]
+    return l
 
-def to_strings(d):
-    k = []
-    for name, number in d.items():
-        k.append(f"{name}:{number}")
-    return k
+#Question 4
+def to_strings(dico):
+    strings = []
+    for name, number in dico.items():
+        strings.append(f"{name}:{number}")
+    return strings
 
-
+#Question 5
 def extremites(l):
     k = []
     for i in [0,1]:
@@ -159,52 +162,44 @@ def extremites(l):
         k.append(l[-i])
     return k
 
-'''class Mot(self, mot):
-    self.mot = mot.lower()
-    
-    def comptelettre(self, lettre):
-        k = []
-        for i in mot:
-            k.append(i)'''
-            
-ville_nom_pays = {'Paris':'France', 'Berlin': 'Allemagne', 'Madrid':'Espagne', 'Moscou':'Russie'}
-    
+#Question 6
+
+#Question 7
 def tri_et_inverse(l):
     k = []
-    o = sorted(l)
+    o = l[::-1]
+    k.append(sorted(l))
     k.append(o)
-    k.append(sorted(l, reverse=True))
     return k
-
-'''class fake_input:
-     def __init__(self, saisies):
-         self._iter = iter(saisies)
-     def __call__(self, *args, **kwargs):
-         return next(self._iter)
-
-def aller_a_paris(input_call=input):
-    k = 0
-    while True:
-        k +=1
-        for i in range(len(input_call)):
-            if input_call[i].lower() == "paris":
-                return False
-    return k, "Paris"
+#Question 8
     
-aller_a_paris(input_call=fake_input(['Barcelone', "paris"]))'''
-  
+def aller_a_paris(input_call=input):
+    # code a remplir
 
-ville_nom_pays = {'Paris':'France', 'Berlin': 'Allemagne', 'Madrid':'Espagne', 'Moscou':'Russie'}
- 
+    # quelque part dans le code de cette fonction: saisie = input_call('Question ')
+    # en fonction de saisie on continue a demander ou on renvoie 'Paris'
+    # Au lieu d'utiliser input comme en cours vous appelez input_call
+    # par défaut elle vaut input donc vous pouvez appeller
+    # aller_a_paris() pour tester a la main
+    while True:
+        return 0, 'Nulle Part'
+
+#Question 9
+ville_nom_pays = {"Paris":"France",
+                  "Berlin":"Allemagne",
+                  "Madrid":"Espagne",
+                  "Moscou":"Russie"}
+
+#Question 10
 class Pays:
     visa = False
-    
+   
     def __init__(self, nom, visa):
         self.nom = nom
         self.visa = visa
         if nom == "France":
             visa = True
-   
+     
 if __name__ == "__main__":
     import doctest
     if True:
