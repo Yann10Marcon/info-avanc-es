@@ -122,14 +122,17 @@ def bulletin():
         print("1. Regarder les notes d'un élève enregistrer")
         print("2. Inscrire un nouvel étudiant")
         print("3. Quitter")
-        choisir = int(input("Quel est votre choix ? (1, 2 ou 3) : "))
-        if choisir == 1:
-            ide = input("Quel est l'identifiant de l'élève ? : ")
-            while ide not in identifiant:
-                print("Cet étudiant n'existe pas ! ")
+        choisir = input("Quel est votre choix ? (1, 2 ou 3) : ")
+        if choisir == "1":
+            if len(identifiant) == 0:
+                    print("Il n'y a pas d'étudiant inscrit")
+            else:        
                 ide = input("Quel est l'identifiant de l'élève ? : ")
-            print(identifiant[ide])
-        elif choisir == 2:
+                while ide not in identifiant:
+                    print("Cet étudiant n'existe pas ! ")
+                    ide = input("Quel est l'identifiant de l'élève ? : ")
+                    print(identifiant[ide])
+        elif choisir == "2":
             ide = input("Quel est l'identifiant de l'élève ? : ")
             decis = decision(ide) 
             while decis == "L'élève est déjà inscrit":
@@ -170,10 +173,11 @@ def bulletin():
                 print("Cet étudiant vient d'etre inscrit")
                 print(identifiant[ide])
                 radar(mat, valeurs, moyclasse)
-        elif choisir == 3:
+        elif choisir == "3":
             choix = False
         else :
-            print("Ce choix n'est pas disponible")
+            print("Ce choix n'est pas disponible ! Une erreur vient de se passer !")
+            break
 
 #Pour lancer
 bulletin()
